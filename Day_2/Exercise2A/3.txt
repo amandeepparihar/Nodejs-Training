@@ -1,0 +1,9 @@
+// Given a string: "Welcome to NodeJS". Print each word in separate line using REPL.
+
+node
+> let str = "Welcome to NodeJS"
+> str.split(" ").forEach((t) => {console.log(t)})
+Welcome
+to
+NodeJS
+undefined
