@@ -7,9 +7,9 @@ const content = await fs.readFile("employees.csv", "utf-8");
 // 3. Filter all the records where JOB_ID is IT_PROG.
 const eachLine = content.trim().split("\n");
 const firstColEachLine = eachLine.slice(1).map((line) => line.split(","));
+// console.log(firstColEachLine)
 
 const ITPROG = firstColEachLine.filter((row) => row.at(-2) === "IT_PROG");
-// console.log(ITPROG);
 
 //  4. Write all the filtered data in output.txt file.
 const output = ITPROG.map((row) => row.join(",")).join("\n");
