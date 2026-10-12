@@ -20,7 +20,9 @@ let p2 = {
   },
 };
 
-a.__proto__ = p;
-p.__proto__ = p2;
+// a.__proto__ = p;
+Object.setPrototypeOf(a, p);
+// p.__proto__ = p2;
+Object.setPrototypeOf(p, p2);
 
 a.run3();
