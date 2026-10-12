@@ -23,5 +23,9 @@
 
 import fs from "fs/promises";
 
-const a = await fs.readFile("./textfile.txt", 'utf-8');
-console.log(a)
+try {
+  const a = await fs.readFile("./textfile.txt", "utf-8");
+  console.log(a);
+} catch (error) {
+  console.error("Could not read file:", error.message);
+}
