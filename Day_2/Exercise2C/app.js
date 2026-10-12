@@ -1,5 +1,6 @@
 import http from "http";
 
+const PORT = process.env.PORT || 5500;
 //list of books
 const books = [
   {
@@ -41,10 +42,15 @@ const books = [
 
 //server
 const server = http.createServer((req, res) => {
-  res.writeHead(200, { "Content-Type": "application/json" });
-  res.end(JSON.stringify(books));
+  if (req.method === "GET" && req.url === "/books") {
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(JSON.stringify(books));
+    return;
+  }
+  res.writeHead(404, { "Content-Type": "application/json" });
+  res.end(JSON.stringify({ message: "Not found!!!" }));
 });
 
-server.listen(5500, () => {
-  console.log("Server running at 5500");
+server.listen(PORT, () => {
+  console.log(`Server running at PORT: ${PORT}`);
 });

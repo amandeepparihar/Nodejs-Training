@@ -1,5 +1,5 @@
-let = graduationFor = (name, year) => {
-  console.log(`Congratulations ${name}!\nClass of ${year}`);
+const graduationFor = (name, year) => {
+  return `Congratulations ${name}!\nClass of ${year}`;
 };
 
-graduationFor("deep", 2026);
+console.log(graduationFor("deep", 2026));

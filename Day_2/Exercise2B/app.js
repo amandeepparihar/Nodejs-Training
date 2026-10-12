@@ -1,7 +1,10 @@
 import fs from "fs/promises";
+import path from "path";
+
+const file = path.join(import.meta.dirname, "employees.csv");
 
 // 2. Read the CSV file which contains the data of employees.
-const content = await fs.readFile("employees.csv", "utf-8");
+const content = await fs.readFile(file, "utf-8");
 // console.log(content);
 
 // 3. Filter all the records where JOB_ID is IT_PROG.

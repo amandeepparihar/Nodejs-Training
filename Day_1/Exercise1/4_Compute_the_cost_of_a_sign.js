@@ -1,7 +1,5 @@
-let costOf = (sign, currency) => {
-  console.log(
-    `Your sign costs ${(20 + sign.length * 2).toFixed(2)} ${currency}`,
-  );
+const costOf = (sign, currency) => {
+  return `Your sign costs ${(20 + sign.length * 2).toFixed(2)} ${currency}`;
 };
 
-costOf("Happy Birthday Rob!", "dollars");
+console.log(costOf("Happy Birthday Rob!", "dollars"));

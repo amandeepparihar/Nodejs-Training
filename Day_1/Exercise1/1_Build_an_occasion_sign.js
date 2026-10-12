@@ -1,5 +1,5 @@
-let buildSign = (occasion, name) => {
-  console.log(`Happy ${occasion} ${name}!`);
+const buildSign = (occasion, name) => {
+  return `Happy ${occasion} ${name}!`;
 };
 
-buildSign("first day", "deep");
+console.log(buildSign("first day", "deep"));

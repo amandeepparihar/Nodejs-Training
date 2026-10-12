@@ -1,7 +1,5 @@
-let buildBirthdaySign = (age) => {
-  console.log(
-    `Happy Birdhday! What a ${age >= 50 ? "mature" : "young"} fellow you are.`,
-  );
+const buildBirthdaySign = (age) => {
+  return `Happy Birthday! What a ${age >= 50 ? "mature" : "young"} fellow you are.`;
 };
 
-buildBirthdaySign(49);
+console.log(buildBirthdaySign(49));
