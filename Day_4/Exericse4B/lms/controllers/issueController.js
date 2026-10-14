@@ -18,7 +18,7 @@ exports.getIssues = async function (req, res) {
       include: [
         { model: Book, attributes: ["id", "bookname", "isbn"] },
         { model: Student, attributes: ["id", "name", "rollno"] },
-      ],
+      ],  
       order: [["id", "ASC"]],
     });
 

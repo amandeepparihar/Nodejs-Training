@@ -80,7 +80,7 @@ exports.createBook = async function (req, res) {
 exports.updateBook = async function (req, res) {
   var bookname = req.body.bookname;
   var author = req.body.author;
-  var isbn = req.body.author;
+  var isbn = req.body.isbn;
 
   if (!bookname || !author || !isbn) {
     return res.status(400).json({
