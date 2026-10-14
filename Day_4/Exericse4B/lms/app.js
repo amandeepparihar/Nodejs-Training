@@ -8,10 +8,15 @@ var session = require("express-session");
 var { connectDB } = require("./config/db");
 var authRouter = require("./routes/auth.route");
 var pagesRouter = require("./routes/pages.route");
+var bookRouter = require("./routes/book.route");
+var studentRouter = require("./routes/student.route");
+var issueRouter = require("./routes/issue.route");
+var passport = require('./config/passport');
 
 var app = express();
 
 connectDB();
+require("./models");
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -32,8 +37,12 @@ app.use(
     saveUninitialized: false,
   }),
 );
+app.use(passport.initialize()); 
 
 app.use("/", authRouter);
+app.use("/api/books", bookRouter);
+app.use("/api/students", studentRouter);
+app.use("/api/issues", issueRouter);
 app.use("/", pagesRouter);
 
 // catch 404 and forward to error handler
