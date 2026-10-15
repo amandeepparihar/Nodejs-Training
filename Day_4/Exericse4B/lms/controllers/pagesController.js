@@ -76,6 +76,6 @@ exports.issueBook = function (req, res) {
     title: "Issue-book",
     active: "issues",
     name: req.session.name,
-    script: "issue-book.js",
+    script: ["issue-book.js", "issue-list.js", "issue-filters.js"],
   });
 };

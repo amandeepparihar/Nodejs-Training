@@ -43,10 +43,43 @@ exports.createStudent = async function (req, res) {
   var name = req.body.name;
   var rollno = req.body.rollno;
   var phoneno = req.body.phoneno;
-  var photo = req.body.photo;
+  var photo = req.file ? req.file.filename : null;
   var country = req.body.country;
   var state = req.body.state;
   var city = req.body.city;
+
+  console.log("req.file -> ",req.file);
+
+  // if(!name) {
+  //   return res
+  //     .status(400)
+  //     .json({ success: false, message: "name required" });
+  // }
+  // if(!rollno) {
+  //   return res
+  //     .status(400)
+  //     .json({ success: false, message: "rollno required" });
+  // }
+  // if(!phoneno) {
+  //   return res
+  //     .status(400)
+  //     .json({ success: false, message: "phoneno required" });
+  // }
+  // if(!country) {
+  //   return res
+  //     .status(400)
+  //     .json({ success: false, message: "country required" });
+  // }
+  // if(!state) {
+  //   return res
+  //     .status(400)
+  //     .json({ success: false, message: "state required" });
+  // }
+  // if(!city) {
+  //   return res
+  //     .status(400)
+  //     .json({ success: false, message: "city required" });
+  // }
 
   if (!name || !rollno || !phoneno || !country || !state || !city) {
     return res

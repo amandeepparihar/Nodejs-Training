@@ -1,87 +1,84 @@
 <section class="pcoded-main-container">
-    <div class="pcoded-wrapper">
-        <div class="pcoded-content">
-            <div class="pcoded-inner-content">
-                <div class="main-body">
-                    <div class="page-wrapper">
-                        <!-- [ breadcrumb ] start -->
-                        <div class="page-header">
-                            <div class="page-block">
-                                <div class="row align-items-center">
-                                    <div class="col-md-12">
-                                        <div class="page-header-title">
-                                            <h5 class="m-b-10">Issue Book</h5>
-                                        </div>
-                                        <ul class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="/book-list.html"><i class="feather icon-home"></i></a></li>
-                                            <li class="breadcrumb-item"><a href="/issue-list.html">Issue List</a></li>
-                                            <li class="breadcrumb-item"><a href="#!">Issue Book</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- [ breadcrumb ] end -->
-                        <!-- [ Main Content ] start -->
-                        <div class="row">
-                            <!-- [ task-list ] start -->
-                            <div class="col-sm-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5>Issue Book</h5>
-										
-                                    </div>
-                                    <div class="card-body task-data">
-										<form>
-											<div class="form-group row">
-												<label for="inputName" class="col-sm-3 col-form-label">Book Name</label>
-												<div class="col-sm-6">
-													<select class="form-control">
-														<option value="">Select Book Name</option>
-														<option value="">C (2223334)</option>
-														<option value="">C++ (2201229)</option>
-														<option value="">C# (2210029)</option>
-														<option value="">Electronic (2221234)</option>
-														<option value="">Electronic-2 (2211325)</option>
-														<option value="">Electronic-3 (2201329)</option>
-														<option value="">Java (2211259)</option>
-														<option value="">Java-Advance (2211329)</option>
-														<option value="">Javascript (2210329)</option>
-													</select>
-												</div>
-											</div>
-											<div class="form-group row">
-												<label for="inputstuname" class="col-sm-3 col-form-label">Student Name</label>
-												<div class="col-sm-6">
-													<select class="form-control">
-														<option value="">Select Student Name</option>
-														<option value="">Ananya Rajput(1511100)</option>
-														<option value="">Anita Mehra(1511090)</option>
-														<option value="">Miraj Khan(1511089)</option>
-														<option value="">Smriti Desai(1511097)</option>
-														<option value="">Sumit Verma(1511092)</option>
-														<option value="">Sushela Rani(1511088)</option>
-													</select>
-												</div>
-											</div>
-											
-											<div class="form-group row">
-												<div class="col-sm-9 text-right">
-													<button type="submit" class="btn btn-primary">Issue	</button>
-													<button type="submit" class="btn btn-danger">Cancel</button>
-												</div>
-											</div>
-										</form>
-                                            
-								   </div>
-                                </div>
-                            </div>
-                            <!-- [ task-list ] end -->
-                        </div>
-                        <!-- [ Main Content ] end -->
+  <div class="pcoded-wrapper">
+    <div class="pcoded-content">
+      <div class="pcoded-inner-content">
+        <div class="main-body">
+          <div class="page-wrapper">
+            <!-- [ breadcrumb ] start -->
+            <div class="page-header">
+              <div class="page-block">
+                <div class="row align-items-center">
+                  <div class="col-md-12">
+                    <div class="page-header-title">
+                      <h5 class="m-b-10">Issue Book</h5>
                     </div>
+                    <ul class="breadcrumb">
+                      <li class="breadcrumb-item">
+                        <a href="/book-list.html"
+                          ><i class="feather icon-home"></i
+                        ></a>
+                      </li>
+                      <li class="breadcrumb-item">
+                        <a href="/issue-list.html">Issue List</a>
+                      </li>
+                      <li class="breadcrumb-item">
+                        <a href="#!">Issue Book</a>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
+              </div>
             </div>
+            <!-- [ breadcrumb ] end -->
+            <!-- [ Main Content ] start -->
+            <div class="row">
+              <!-- [ task-list ] start -->
+              <div class="col-sm-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h5>Issue Book</h5>
+                  </div>
+                  <div class="card-body task-data">
+                    <form id="issueBookForm">
+                      <div class="form-group row">
+                        <label for="inputName" class="col-sm-3 col-form-label"
+                          >Book Name</label
+                        >
+                        <div class="col-sm-6">
+                          <select class="form-control" id="bookName"></select>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label
+                          for="inputstuname"
+                          class="col-sm-3 col-form-label"
+                          >Student Name</label
+                        >
+                        <div class="col-sm-6">
+                          <select class="form-control" id="stuName"></select>
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <div class="col-sm-9 text-right">
+                          <button type="submit" class="btn btn-primary">
+                            Issue
+                          </button>
+                          <button type="submit" class="btn btn-danger">
+                            Cancel
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!-- [ task-list ] end -->
+            </div>
+            <!-- [ Main Content ] end -->
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </section>

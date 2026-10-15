@@ -30,18 +30,31 @@ async function loadStudents() {
 }
 
 function buildRow(student) {
-  var photo = student.photo || "avatar-1.jpg";
+  var photo = student.photo
+    ? "/uploads/" + student.photo
+    : "/assets/images/user/avatar-1.jpg";
 
   return (
     "<tr>" +
-    '<td><img class="img-fluid img-radius mr-1" src="/assets/images/user/' +
-      escapeHtml(photo) + '" alt=""></td>' +
-    "<td>" + escapeHtml(student.id) + "</td>" +
-    "<td>" + escapeHtml(student.name) + "</td>" +
-    "<td>" + escapeHtml(student.rollno) + "</td>" +
-    "<td>" + escapeHtml(student.phoneno) + "</td>" +
-    '<td><a href="/assets/images/user/' + escapeHtml(photo) +
-      '" download title="Download"><i class="fa fa-download"></i></a></td>' +
+    '<td><img class="img-fluid img-radius mr-1" src="' +
+    photo +
+    '" alt=""></td>' +
+    "<td>" +
+    escapeHtml(student.id) +
+    "</td>" +
+    "<td>" +
+    escapeHtml(student.name) +
+    "</td>" +
+    "<td>" +
+    escapeHtml(student.rollno) +
+    "</td>" +
+    "<td>" +
+    escapeHtml(student.phoneno) +
+    "</td>" +
+    '<td><a href="' +
+    photo +
+    '" download title="Download">' +
+    '<i class="fa fa-download"></i></a></td>' +
     "</tr>"
   );
 }

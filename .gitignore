@@ -3,3 +3,7 @@
 *.txt
 *node_modules
 *.csv
+*.jpg
+*.png
+*.jpeg
+*.zip

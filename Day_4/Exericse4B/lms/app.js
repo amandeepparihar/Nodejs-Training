@@ -3,8 +3,8 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
-var session = require("express-session");
 
+var session = require("express-session");
 var expressLayouts = require("express-ejs-layouts");
 var { connectDB } = require("./config/db");
 var authRouter = require("./routes/auth.route");
@@ -13,11 +13,14 @@ var bookRouter = require("./routes/book.route");
 var studentRouter = require("./routes/student.route");
 var issueRouter = require("./routes/issue.route");
 var passport = require("./config/passport");
+const multer = require("multer");
 
 var app = express();
 
 require("./models");
 connectDB();
+
+const upload = multer({ dest: "uploads/" });
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -47,6 +50,12 @@ app.use("/api/books", bookRouter);
 app.use("/api/students", studentRouter);
 app.use("/api/issues", issueRouter);
 app.use("/", pagesRouter);
+
+// app.post("/upload", upload.single("photo"), (req, res) => {
+//   console.log("req.body-> ",req.body);
+//   console.log("res.file-> ",res.file);
+//   return res.redirect("/");
+// });
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
