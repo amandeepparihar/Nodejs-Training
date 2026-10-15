@@ -24,6 +24,7 @@ router.get(
   function (req, res) {
     req.session.userId = req.user.id;
     req.session.name = req.user.name;
+    req.session.email = req.user.email;
     res.redirect("/book-list.html");
   },
 );

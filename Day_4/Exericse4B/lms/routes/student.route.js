@@ -14,12 +14,12 @@ router.post(
   studentController.createStudent,
 );
 
-router.put(
-  "/:id",
-  requireLogin,
-  upload.single("photo"),
-  studentController.updateStudent,
-);
+// router.put(
+//   "/:id",
+//   requireLogin,
+//   upload.single("photo"),
+//   studentController.updateStudent,
+// );
 
 router.delete("/:id", requireLogin, studentController.deleteStudent);
 

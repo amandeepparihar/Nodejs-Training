@@ -4,6 +4,10 @@ var { sequelize } = require("../config/db");
 var Book = sequelize.define(
   "Book",
   {
+    bookCover: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+    },
     bookname: {
       type: DataTypes.STRING(100),
       allowNull: false,

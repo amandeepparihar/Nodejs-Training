@@ -40,21 +40,22 @@ async function saveBook(event) {
   event.preventDefault();
 
   var button = event.target.querySelector("button[type=submit]");
-  button.disabled = true;   
+  button.disabled = true;
 
   var id = getId();
 
-  var book = {
-    bookname: document.getElementById("bookname").value.trim(),
-    author: document.getElementById("author").value.trim(),
-    isbn: document.getElementById("isbn").value.trim(),
-  };
+  var formData = new FormData(event.target);
+
+  // var book = {
+  //   bookname: document.getElementById("bookname").value.trim(),
+  //   author: document.getElementById("author").value.trim(),
+  //   isbn: document.getElementById("isbn").value.trim(),
+  // };
 
   try {
     var response = await fetch("/api/books/" + id, {
       method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(book),
+      body: formData,
     });
     var result = await response.json();
 

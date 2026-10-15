@@ -29,6 +29,7 @@ exports.login = async function (req, res) {
 
     req.session.userId = user.id;
     req.session.name = user.name;
+    req.session.email = user.email;
     // console.log('LOGIN  ->', req.sessionID, req.session.userId);
     res.redirect("/book-list.html");
   } catch (error) {

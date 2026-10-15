@@ -34,8 +34,15 @@ async function loadBooks() {
 }
 
 function buildRow(book) {
+  var bookCover = book.bookCover
+    ? "/uploads/" + book.bookCover
+    : "/assets/images/user/defaultBook.jpg";
+
   return (
     "<tr>" +
+    '<td><img class=img-fluid img-radius mr-1" src="' +
+    bookCover +
+    '"alt=""></td>' +
     "<td>" +
     escapeHtml(book.bookname) +
     "</td>" +
@@ -55,6 +62,11 @@ function buildRow(book) {
     escapeHtml(book.bookname) +
     '" title="Delete">' +
     '<i class="feather icon-trash-2"></i></a></td>' +
+    "</td>" +
+    '<td><a href="' +
+    bookCover +
+    '" download title="Download">' +
+    '<i class="fa fa-download"></i></a></td>' +
     "</tr>"
   );
 }

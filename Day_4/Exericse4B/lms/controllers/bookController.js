@@ -1,4 +1,25 @@
 var Book = require("../models/book.model");
+var mailSender = require("../utils/mailSender.util");
+var path = require("path");
+
+async function sendBookMail(to, book) {
+  var body = `
+    <p><b>Book Name:</b> ${book.bookname}</p>
+    <p><b>Author:</b> ${book.author}</p>
+    <p><b>ISBN:</b> ${book.isbn}</p>
+  `;
+
+  var attachments = [];
+
+  if (book.bookCover) {
+    attachments.push({
+      filename: book.bookCover,
+      path: path.join(__dirname, "../public/uploads", book.bookCover),
+    });
+  }
+
+  return mailSender(to, `New Book Added: ${book.bookname}`, body, attachments);
+}
 
 //getbooks
 exports.getBooks = async function (req, res) {
@@ -40,13 +61,14 @@ exports.getBookById = async function (req, res) {
 
 //create book
 exports.createBook = async function (req, res) {
+  var bookCover = req.file ? req.file.filename : null;
   var bookname = req.body.bookname;
   var author = req.body.author;
   var isbn = req.body.isbn;
 
   if (!bookname || !author || !isbn) {
     return res.status(400).json({
-      message: "All fieldsare required",
+      message: "All fields are required",
     });
   }
 
@@ -60,9 +82,14 @@ exports.createBook = async function (req, res) {
     }
 
     var book = await Book.create({
+      bookCover: bookCover,
       bookname: bookname,
       author: author,
       isbn: isbn,
+    });
+
+    sendBookMail(req.session.email, book).catch(function (mailError) {
+      console.error("Mail failed:", mailError.message);
     });
 
     return res.status(201).json({
@@ -78,6 +105,7 @@ exports.createBook = async function (req, res) {
 
 //update book
 exports.updateBook = async function (req, res) {
+  var bookCover = req.file ? req.file.filename : null;
   var bookname = req.body.bookname;
   var author = req.body.author;
   var isbn = req.body.isbn;
@@ -103,6 +131,7 @@ exports.updateBook = async function (req, res) {
         .json({ message: "Book with this ISBN already exists" });
     }
 
+    book.bookCover = bookCover;
     book.bookname = bookname;
     book.author = author;
     book.isbn = isbn;

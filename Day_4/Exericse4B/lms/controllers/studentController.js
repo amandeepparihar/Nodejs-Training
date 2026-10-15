@@ -48,38 +48,7 @@ exports.createStudent = async function (req, res) {
   var state = req.body.state;
   var city = req.body.city;
 
-  console.log("req.file -> ",req.file);
-
-  // if(!name) {
-  //   return res
-  //     .status(400)
-  //     .json({ success: false, message: "name required" });
-  // }
-  // if(!rollno) {
-  //   return res
-  //     .status(400)
-  //     .json({ success: false, message: "rollno required" });
-  // }
-  // if(!phoneno) {
-  //   return res
-  //     .status(400)
-  //     .json({ success: false, message: "phoneno required" });
-  // }
-  // if(!country) {
-  //   return res
-  //     .status(400)
-  //     .json({ success: false, message: "country required" });
-  // }
-  // if(!state) {
-  //   return res
-  //     .status(400)
-  //     .json({ success: false, message: "state required" });
-  // }
-  // if(!city) {
-  //   return res
-  //     .status(400)
-  //     .json({ success: false, message: "city required" });
-  // }
+  // console.log("req.file -> ",req.file);
 
   if (!name || !rollno || !phoneno || !country || !state || !city) {
     return res
@@ -119,58 +88,58 @@ exports.createStudent = async function (req, res) {
 };
 
 // update a student
-exports.updateStudent = async function (req, res) {
-  var name = req.body.name;
-  var rollno = req.body.rollno;
-  var phoneno = req.body.phoneno;
-  var photo = req.body.photo;
-  var country = req.body.country;
-  var state = req.body.state;
-  var city = req.body.city;
+// exports.updateStudent = async function (req, res) {
+//   var name = req.body.name;
+//   var rollno = req.body.rollno;
+//   var phoneno = req.body.phoneno;
+//   var photo = req.file ? req.file.filename : null;
+//   var country = req.body.country;
+//   var state = req.body.state;
+//   var city = req.body.city;
 
-  if (!name || !rollno || !phoneno || !country || !state || !city) {
-    return res
-      .status(400)
-      .json({ success: false, message: "All fields are required" });
-  }
+//   if (!name || !rollno || !phoneno || !country || !state || !city) {
+//     return res
+//       .status(400)
+//       .json({ success: false, message: "All fields are required" });
+//   }
 
-  try {
-    var student = await Student.findByPk(req.params.id);
+//   try {
+//     var student = await Student.findByPk(req.params.id);
 
-    if (!student) {
-      return res
-        .status(404)
-        .json({ success: false, message: "Student not found" });
-    }
+//     if (!student) {
+//       return res
+//         .status(404)
+//         .json({ success: false, message: "Student not found" });
+//     }
 
-    var exists = await Student.findOne({ where: { rollno: rollno } });
+//     var exists = await Student.findOne({ where: { rollno: rollno } });
 
-    if (exists && exists.id !== student.id) {
-      return res.status(400).json({
-        success: false,
-        message: "Student with this roll no already exists",
-      });
-    }
+//     if (exists && exists.id !== student.id) {
+//       return res.status(400).json({
+//         success: false,
+//         message: "Student with this roll no already exists",
+//       });
+//     }
 
-    student.name = name;
-    student.rollno = rollno;
-    student.phoneno = phoneno;
-    student.photo = photo;
-    student.country = country;
-    student.state = state;
-    student.city = city;
-    await student.save();
+//     student.name = name;
+//     student.rollno = rollno;
+//     student.phoneno = phoneno;
+//     student.photo = photo;
+//     student.country = country;
+//     student.state = state;
+//     student.city = city;
+//     await student.save();
 
-    res.json({
-      success: true,
-      message: "Student updated successfully",
-      data: student,
-    });
-  } catch (error) {
-    console.error(error.message);
-    res.status(500).json({ success: false, message: "Something went wrong" });
-  }
-};
+//     res.json({
+//       success: true,
+//       message: "Student updated successfully",
+//       data: student,
+//     });
+//   } catch (error) {
+//     console.error(error.message);
+//     res.status(500).json({ success: false, message: "Something went wrong" });
+//   }
+// };
 
 //delete a student
 exports.deleteStudent = async function (req, res) {
